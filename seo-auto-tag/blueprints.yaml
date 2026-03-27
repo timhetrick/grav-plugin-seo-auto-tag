@@ -1,26 +1,30 @@
+name: SEO Auto-Tag
+slug: seo-auto-tag
+type: plugin
+version: 1.0.0
+description: Automatically generates SEO meta tags and social graphs for your pages.
+icon: tag
+author:
+  name: Custom Developer
+  email: developer@example.com
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
 form:
+  validation: strict
   fields:
-    tabs:
-      fields:
-        seo_auto_tag:
-          title: PLUGIN_SEO_AUTO_TAG.TAB
-          type: tab
-          fields:
-            header.seo.title:
-              type: text
-              label: PLUGIN_SEO_AUTO_TAG.FIELDS.TITLE_OVERRIDE_LABEL
-              help: PLUGIN_SEO_AUTO_TAG.FIELDS.TITLE_OVERRIDE_HELP
-              
-            header.seo.description:
-              type: textarea
-              label: PLUGIN_SEO_AUTO_TAG.FIELDS.DESC_OVERRIDE_LABEL
-              help: PLUGIN_SEO_AUTO_TAG.FIELDS.DESC_OVERRIDE_HELP
-              
-            header.seo.image:
-              type: filepicker
-              folder: '@self'
-              label: PLUGIN_SEO_AUTO_TAG.FIELDS.IMAGE_OVERRIDE_LABEL
-              help: PLUGIN_SEO_AUTO_TAG.FIELDS.IMAGE_OVERRIDE_HELP
-              preview_images: true
-              accept:
-                - image/*
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    
+    default_brand_image:
+      type: text
+      label: Default Brand Image
+      help: Fallback image for SEO when no image is specified.

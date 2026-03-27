@@ -1,0 +1,26 @@
+form:
+  fields:
+    tabs:
+      fields:
+        seo_auto_tag:
+          title: PLUGIN_SEO_AUTO_TAG.TAB
+          type: tab
+          fields:
+            header.seo.title:
+              type: text
+              label: PLUGIN_SEO_AUTO_TAG.FIELDS.TITLE_OVERRIDE_LABEL
+              help: PLUGIN_SEO_AUTO_TAG.FIELDS.TITLE_OVERRIDE_HELP
+              
+            header.seo.description:
+              type: textarea
+              label: PLUGIN_SEO_AUTO_TAG.FIELDS.DESC_OVERRIDE_LABEL
+              help: PLUGIN_SEO_AUTO_TAG.FIELDS.DESC_OVERRIDE_HELP
+              
+            header.seo.image:
+              type: filepicker
+              folder: '@self'
+              label: PLUGIN_SEO_AUTO_TAG.FIELDS.IMAGE_OVERRIDE_LABEL
+              help: PLUGIN_SEO_AUTO_TAG.FIELDS.IMAGE_OVERRIDE_HELP
+              preview_images: true
+              accept:
+                - image/*

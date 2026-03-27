@@ -55,7 +55,8 @@ class SeoAutoTagPlugin extends Plugin
 
         $blueprint = $event['blueprint'];
         if ($blueprint->get('form/fields/tabs', null, '/')) {
-            $current_blueprint = new \Grav\Common\Data\Blueprint('plugin://seo-auto-tag/blueprints.yaml');
+            $current_blueprint = new \Grav\Common\Data\Blueprint('plugin://seo-auto-tag/blueprints/page.yaml');
+            $current_blueprint->init();
             $blueprint->extend($current_blueprint, true);
         }
     }
