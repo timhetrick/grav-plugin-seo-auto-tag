@@ -1,0 +1,56 @@
+{# SEO Auto-Tag Logic #}
+
+{# 1. Title Override #}
+{% set seo_title = page.header.seo.title|default(page.title) %}
+
+{# 2. Description Fallback Logic #}
+{% set seo_desc = page.header.seo.description %}
+{% if not seo_desc %}
+    {% set seo_desc = page.metadata['description'] %}
+{% endif %}
+{% if not seo_desc %}
+    {% set seo_desc = page.content()|striptags|truncate(155, false)|replace({"\r": "", "\n": " "})|trim %}
+{% endif %}
+
+{# 3. Image Fallback Logic #}
+{% set seo_image = page.header.seo.image %}
+{% if not seo_image %}
+    {% set first_image = page.media.images|first %}
+    {% if first_image %}
+        {% set seo_image = first_image.url(false) %}
+    {% endif %}
+{% endif %}
+
+{% if not seo_image %}
+    {# Fallback to theme configured brand image #}
+    {% set default_brand_image = theme_config.default_brand_image|default(config.theme.default_brand_image) %}
+    {% if default_brand_image %}
+        {% set seo_image = url('theme://' ~ default_brand_image) %}
+    {% endif %}
+{% endif %}
+
+{# 4. Output Tags #}
+<title>{{ seo_title }}</title>
+
+{% if seo_desc %}
+<meta name="description" content="{{ seo_desc|e('html_attr') }}">
+{% endif %}
+
+<meta property="og:title" content="{{ seo_title|e('html_attr') }}">
+{% if seo_desc %}
+<meta property="og:description" content="{{ seo_desc|e('html_attr') }}">
+{% endif %}
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ page.url(true) }}">
+{% if seo_image %}
+<meta property="og:image" content="{{ url(seo_image, true) }}">
+{% endif %}
+
+<meta name="twitter:card" content="{{ seo_image ? 'summary_large_image' : 'summary' }}">
+<meta name="twitter:title" content="{{ seo_title|e('html_attr') }}">
+{% if seo_desc %}
+<meta name="twitter:description" content="{{ seo_desc|e('html_attr') }}">
+{% endif %}
+{% if seo_image %}
+<meta name="twitter:image" content="{{ url(seo_image, true) }}">
+{% endif %}

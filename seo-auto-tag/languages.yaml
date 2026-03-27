@@ -1,4 +1,32 @@
 en:
   PLUGIN_SEO_AUTO_TAG:
-    TEXT_VARIABLE: Text Variable
-    TEXT_VARIABLE_HELP: Text to add to the top of a page
+    TAB: SEO Auto-Tag
+    FIELDS:
+      TITLE_OVERRIDE_LABEL: SEO Title Override
+      TITLE_OVERRIDE_HELP: Overrides the default page title for SEO purposes.
+      DESC_OVERRIDE_LABEL: SEO Description Override
+      DESC_OVERRIDE_HELP: Manual override for the meta description. Fallbacks to page metadata or generated summary.
+      IMAGE_OVERRIDE_LABEL: SEO Image Override
+      IMAGE_OVERRIDE_HELP: Manual override for the OpenGraph/Twitter image. Fallbacks to first page image or default brand image.
+
+fr:
+  PLUGIN_SEO_AUTO_TAG:
+    TAB: SEO Auto-Tag
+    FIELDS:
+      TITLE_OVERRIDE_LABEL: Remplacement du titre SEO
+      TITLE_OVERRIDE_HELP: Remplace le titre de la page par défaut à des fins de référencement.
+      DESC_OVERRIDE_LABEL: Remplacement de la description SEO
+      DESC_OVERRIDE_HELP: Remplacement manuel de la méta-description. Se rabat sur les métadonnées de la page ou sur un résumé généré.
+      IMAGE_OVERRIDE_LABEL: Remplacement de l'image SEO
+      IMAGE_OVERRIDE_HELP: Remplacement manuel pour l'image OpenGraph/Twitter. Se rabat sur la première image de la page ou l'image de marque par défaut.
+
+de:
+  PLUGIN_SEO_AUTO_TAG:
+    TAB: SEO Auto-Tag
+    FIELDS:
+      TITLE_OVERRIDE_LABEL: SEO Titel überschreiben
+      TITLE_OVERRIDE_HELP: Überschreibt den Standard-Seitentitel für SEO-Zwecke.
+      DESC_OVERRIDE_LABEL: SEO Beschreibung überschreiben
+      DESC_OVERRIDE_HELP: Manuelle Überschreibung der Meta-Beschreibung. Greift auf Seitenmetadaten oder eine generierte Zusammenfassung zurück.
+      IMAGE_OVERRIDE_LABEL: SEO Bild überschreiben
+      IMAGE_OVERRIDE_HELP: Manuelle Überschreibung für das OpenGraph-/Twitter-Bild. Greift auf das erste Seitenbild oder das Standard-Markenbild zurück.

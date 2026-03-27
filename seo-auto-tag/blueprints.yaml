@@ -1,36 +1,26 @@
-name: Seo Auto Tag
-slug: seo-auto-tag
-type: plugin
-version: 0.1.0
-description: SEO Auto-Tag is a lightweight, zero-config plugin that automatically generates SEO and Social Media (OpenGraph/Twitter) metadata. It intelligently falls back from manual overrides to automated summaries and smart image selection to ensure your site always looks professional when shared.
-icon: plug
-author:
-  name: Tim Hetrick
-  email: tim@timhetrick.com
-homepage: https://github.com/timhetrick/grav-plugin-seo-auto-tag
-demo: http://demo.yoursite.com
-keywords: grav, plugin, etc
-bugs: https://github.com/timhetrick/grav-plugin-seo-auto-tag/issues
-docs: https://github.com/timhetrick/grav-plugin-seo-auto-tag/blob/develop/README.md
-license: MIT
-
-dependencies:
-  - { name: grav, version: '>=1.6.0' }
-
 form:
-  validation: loose
   fields:
-    enabled:
-      type: toggle
-      label: PLUGIN_ADMIN.PLUGIN_STATUS
-      highlight: 1
-      default: 0
-      options:
-        1: PLUGIN_ADMIN.ENABLED
-        0: PLUGIN_ADMIN.DISABLED
-      validate:
-        type: bool
-    text_var:
-      type: text
-      label: PLUGIN_SEO_AUTO_TAG.TEXT_VARIABLE
-      help: PLUGIN_SEO_AUTO_TAG.TEXT_VARIABLE_HELP
+    tabs:
+      fields:
+        seo_auto_tag:
+          title: PLUGIN_SEO_AUTO_TAG.TAB
+          type: tab
+          fields:
+            header.seo.title:
+              type: text
+              label: PLUGIN_SEO_AUTO_TAG.FIELDS.TITLE_OVERRIDE_LABEL
+              help: PLUGIN_SEO_AUTO_TAG.FIELDS.TITLE_OVERRIDE_HELP
+              
+            header.seo.description:
+              type: textarea
+              label: PLUGIN_SEO_AUTO_TAG.FIELDS.DESC_OVERRIDE_LABEL
+              help: PLUGIN_SEO_AUTO_TAG.FIELDS.DESC_OVERRIDE_HELP
+              
+            header.seo.image:
+              type: filepicker
+              folder: '@self'
+              label: PLUGIN_SEO_AUTO_TAG.FIELDS.IMAGE_OVERRIDE_LABEL
+              help: PLUGIN_SEO_AUTO_TAG.FIELDS.IMAGE_OVERRIDE_HELP
+              preview_images: true
+              accept:
+                - image/*
