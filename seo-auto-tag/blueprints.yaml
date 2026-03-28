@@ -1,12 +1,16 @@
 name: SEO Auto-Tag
 slug: seo-auto-tag
 type: plugin
-version: 1.0.0
-description: Automatically generates SEO meta tags and social graphs for your pages.
+version: 1.1.0
+description: SEO Auto-Tag is a lightweight, zero-config plugin that automatically generates SEO and Social Media (OpenGraph/Twitter) metadata. It intelligently falls back from manual overrides to automated summaries and smart image selection to ensure your site always looks professional when shared.
 icon: tag
 author:
-  name: Custom Developer
-  email: developer@example.com
+  name: Tim Hetrick
+  email: timhetrick@gmail.com
+homepage: https://timhetrick.com
+bugs: https://github.com/timhetrick/grav-plugin-seo-auto-tag/issues
+docs: https://github.com/timhetrick/grav-plugin-seo-auto-tag/blob/master/README.md
+license: MIT
 dependencies:
   - { name: grav, version: '>=1.6.0' }
 
@@ -23,8 +27,58 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    
-    default_brand_image:
+
+    title_section:
+      type: section
+      title: PLUGIN_SEO_AUTO_TAG.CONFIG.TITLE_SECTION
+      underline: true
+
+    append_site_name:
+      type: toggle
+      label: PLUGIN_SEO_AUTO_TAG.CONFIG.APPEND_SITE_NAME_LABEL
+      help: PLUGIN_SEO_AUTO_TAG.CONFIG.APPEND_SITE_NAME_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    title_separator:
       type: text
-      label: Default Brand Image
-      help: Fallback image for SEO when no image is specified.
+      label: PLUGIN_SEO_AUTO_TAG.CONFIG.TITLE_SEPARATOR_LABEL
+      help: PLUGIN_SEO_AUTO_TAG.CONFIG.TITLE_SEPARATOR_HELP
+      default: ' | '
+      size: small
+
+    image_section:
+      type: section
+      title: PLUGIN_SEO_AUTO_TAG.CONFIG.IMAGE_SECTION
+      underline: true
+
+    default_brand_image:
+      type: filepicker
+      folder: 'user://images'
+      label: PLUGIN_SEO_AUTO_TAG.CONFIG.DEFAULT_BRAND_IMAGE_LABEL
+      help: PLUGIN_SEO_AUTO_TAG.CONFIG.DEFAULT_BRAND_IMAGE_HELP
+      preview_images: true
+      accept:
+        - image/*
+
+    structured_data_section:
+      type: section
+      title: PLUGIN_SEO_AUTO_TAG.CONFIG.STRUCTURED_DATA_SECTION
+      underline: true
+
+    json_ld:
+      type: toggle
+      label: PLUGIN_SEO_AUTO_TAG.CONFIG.JSON_LD_LABEL
+      help: PLUGIN_SEO_AUTO_TAG.CONFIG.JSON_LD_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool

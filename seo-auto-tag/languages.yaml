@@ -5,9 +5,27 @@ en:
       TITLE_OVERRIDE_LABEL: SEO Title Override
       TITLE_OVERRIDE_HELP: Overrides the default page title for SEO purposes.
       DESC_OVERRIDE_LABEL: SEO Description Override
-      DESC_OVERRIDE_HELP: Manual override for the meta description. Fallbacks to page metadata or generated summary.
+      DESC_OVERRIDE_HELP: Manual override for the meta description (max 160 characters). Falls back to page metadata or auto-generated summary.
       IMAGE_OVERRIDE_LABEL: SEO Image Override
-      IMAGE_OVERRIDE_HELP: Manual override for the OpenGraph/Twitter image. Fallbacks to first page image or default brand image.
+      IMAGE_OVERRIDE_HELP: Manual override for the OpenGraph/Twitter image. Falls back to first page image or default brand image.
+      ROBOTS_LABEL: Robots
+      ROBOTS_HELP: Controls how search engines index this page.
+      ROBOTS_DEFAULT: Default (index, follow)
+      ROBOTS_NOINDEX: No Index
+      ROBOTS_NOFOLLOW: No Follow
+      ROBOTS_NOINDEX_NOFOLLOW: No Index, No Follow
+    CONFIG:
+      TITLE_SECTION: Title Settings
+      APPEND_SITE_NAME_LABEL: Append Site Name to Title
+      APPEND_SITE_NAME_HELP: Appends the site name to the SEO title (e.g. "Page Title | My Site").
+      TITLE_SEPARATOR_LABEL: Title Separator
+      TITLE_SEPARATOR_HELP: The separator between the page title and the site name.
+      IMAGE_SECTION: Image Settings
+      DEFAULT_BRAND_IMAGE_LABEL: Default Brand Image
+      DEFAULT_BRAND_IMAGE_HELP: Fallback image used for SEO when no page-specific image is available.
+      STRUCTURED_DATA_SECTION: Structured Data
+      JSON_LD_LABEL: JSON-LD Structured Data
+      JSON_LD_HELP: Output JSON-LD schema markup for better search engine understanding.
 
 fr:
   PLUGIN_SEO_AUTO_TAG:
@@ -16,9 +34,27 @@ fr:
       TITLE_OVERRIDE_LABEL: Remplacement du titre SEO
       TITLE_OVERRIDE_HELP: Remplace le titre de la page par défaut à des fins de référencement.
       DESC_OVERRIDE_LABEL: Remplacement de la description SEO
-      DESC_OVERRIDE_HELP: Remplacement manuel de la méta-description. Se rabat sur les métadonnées de la page ou sur un résumé généré.
+      DESC_OVERRIDE_HELP: Remplacement manuel de la méta-description (max 160 caractères). Se rabat sur les métadonnées de la page ou sur un résumé généré.
       IMAGE_OVERRIDE_LABEL: Remplacement de l'image SEO
       IMAGE_OVERRIDE_HELP: Remplacement manuel pour l'image OpenGraph/Twitter. Se rabat sur la première image de la page ou l'image de marque par défaut.
+      ROBOTS_LABEL: Robots
+      ROBOTS_HELP: Contrôle la façon dont les moteurs de recherche indexent cette page.
+      ROBOTS_DEFAULT: Par défaut (index, follow)
+      ROBOTS_NOINDEX: Pas d'indexation
+      ROBOTS_NOFOLLOW: Pas de suivi
+      ROBOTS_NOINDEX_NOFOLLOW: Pas d'indexation, pas de suivi
+    CONFIG:
+      TITLE_SECTION: Paramètres du titre
+      APPEND_SITE_NAME_LABEL: Ajouter le nom du site au titre
+      APPEND_SITE_NAME_HELP: Ajoute le nom du site au titre SEO (ex. « Titre de la page | Mon Site »).
+      TITLE_SEPARATOR_LABEL: Séparateur de titre
+      TITLE_SEPARATOR_HELP: Le séparateur entre le titre de la page et le nom du site.
+      IMAGE_SECTION: Paramètres de l'image
+      DEFAULT_BRAND_IMAGE_LABEL: Image de marque par défaut
+      DEFAULT_BRAND_IMAGE_HELP: Image de secours utilisée pour le SEO lorsqu'aucune image spécifique à la page n'est disponible.
+      STRUCTURED_DATA_SECTION: Données structurées
+      JSON_LD_LABEL: Données structurées JSON-LD
+      JSON_LD_HELP: Produit un balisage de schéma JSON-LD pour une meilleure compréhension par les moteurs de recherche.
 
 de:
   PLUGIN_SEO_AUTO_TAG:
@@ -27,6 +63,24 @@ de:
       TITLE_OVERRIDE_LABEL: SEO Titel überschreiben
       TITLE_OVERRIDE_HELP: Überschreibt den Standard-Seitentitel für SEO-Zwecke.
       DESC_OVERRIDE_LABEL: SEO Beschreibung überschreiben
-      DESC_OVERRIDE_HELP: Manuelle Überschreibung der Meta-Beschreibung. Greift auf Seitenmetadaten oder eine generierte Zusammenfassung zurück.
+      DESC_OVERRIDE_HELP: Manuelle Überschreibung der Meta-Beschreibung (max. 160 Zeichen). Greift auf Seitenmetadaten oder eine generierte Zusammenfassung zurück.
       IMAGE_OVERRIDE_LABEL: SEO Bild überschreiben
       IMAGE_OVERRIDE_HELP: Manuelle Überschreibung für das OpenGraph-/Twitter-Bild. Greift auf das erste Seitenbild oder das Standard-Markenbild zurück.
+      ROBOTS_LABEL: Robots
+      ROBOTS_HELP: Steuert, wie Suchmaschinen diese Seite indexieren.
+      ROBOTS_DEFAULT: Standard (index, follow)
+      ROBOTS_NOINDEX: Nicht indexieren
+      ROBOTS_NOFOLLOW: Nicht folgen
+      ROBOTS_NOINDEX_NOFOLLOW: Nicht indexieren, nicht folgen
+    CONFIG:
+      TITLE_SECTION: Titel-Einstellungen
+      APPEND_SITE_NAME_LABEL: Seitenname an Titel anhängen
+      APPEND_SITE_NAME_HELP: Hängt den Seitennamen an den SEO-Titel an (z. B. „Seitentitel | Meine Seite").
+      TITLE_SEPARATOR_LABEL: Titel-Trennzeichen
+      TITLE_SEPARATOR_HELP: Das Trennzeichen zwischen dem Seitentitel und dem Seitennamen.
+      IMAGE_SECTION: Bild-Einstellungen
+      DEFAULT_BRAND_IMAGE_LABEL: Standard-Markenbild
+      DEFAULT_BRAND_IMAGE_HELP: Fallback-Bild für SEO, wenn kein seitenspezifisches Bild vorhanden ist.
+      STRUCTURED_DATA_SECTION: Strukturierte Daten
+      JSON_LD_LABEL: JSON-LD Strukturierte Daten
+      JSON_LD_HELP: Gibt JSON-LD-Schema-Markup aus, damit Suchmaschinen die Inhalte besser verstehen.

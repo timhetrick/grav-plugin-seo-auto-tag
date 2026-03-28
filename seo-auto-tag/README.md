@@ -1,56 +1,91 @@
-# Seo Auto Tag Plugin
+# SEO Auto-Tag Plugin
 
-**This README.md file should be modified to describe the features, installation, configuration, and general usage of the plugin.**
+The **SEO Auto-Tag** plugin for [Grav CMS](https://github.com/getgrav/grav) automatically generates SEO and social media metadata for every page. It uses an intelligent fallback system — from manual overrides → page metadata → auto-generated content — so your site always looks polished when shared on Google, Facebook, Twitter/X, Slack, and more.
 
-The **Seo Auto Tag** Plugin is an extension for [Grav CMS](https://github.com/getgrav/grav). SEO Auto-Tag is a lightweight, zero-config plugin that automatically generates SEO and Social Media (OpenGraph/Twitter) metadata. It intelligently falls back from manual overrides to automated summaries and smart image selection to ensure your site always looks professional when shared.
+## Features
+
+- **Meta description** with smart fallback: manual override → page metadata → auto-generated from content (155 chars)
+- **OpenGraph tags** (`og:title`, `og:description`, `og:image`, `og:type`, `og:url`, `og:site_name`, `og:locale`)
+- **Twitter Card tags** (`summary_large_image` when an image is available, `summary` otherwise)
+- **Canonical URL** (`<link rel="canonical">`) on every routable page
+- **Robots meta tag** — per-page `noindex`/`nofollow` control from the admin
+- **Title + Site Name** appending with a configurable separator (e.g. `Page Title | My Site`)
+- **JSON-LD structured data** — outputs `WebPage` or `Article` schema for better search engine understanding
+- **Image fallback chain**: manual override → first page image → default brand image (configurable)
+- **Admin integration** — adds an "SEO Auto-Tag" tab to every page editor with fields for title, description, image, and robots overrides
+- **Multi-language support** — translations included for English, French, and German
 
 ## Installation
 
-Installing the Seo Auto Tag plugin can be done in one of three ways: The GPM (Grav Package Manager) installation method lets you quickly install the plugin with a simple terminal command, the manual method lets you do so via a zip file, and the admin method lets you do so via the Admin Plugin.
-
 ### GPM Installation (Preferred)
 
-To install the plugin via the [GPM](https://learn.getgrav.org/cli-console/grav-cli-gpm), through your system's terminal (also called the command line), navigate to the root of your Grav-installation, and enter:
-
-    bin/gpm install seo-auto-tag
-
-This will install the Seo Auto Tag plugin into your `/user/plugins`-directory within Grav. Its files can be found under `/your/site/grav/user/plugins/seo-auto-tag`.
+```bash
+bin/gpm install seo-auto-tag
+```
 
 ### Manual Installation
 
-To install the plugin manually, download the zip-version of this repository and unzip it under `/your/site/grav/user/plugins`. Then rename the folder to `seo-auto-tag`. You can find these files on [GitHub](https://github.com/timhetrick/grav-plugin-seo-auto-tag) or via [GetGrav.org](https://getgrav.org/downloads/plugins).
-
-You should now have all the plugin files under
-
-    /your/site/grav/user/plugins/seo-auto-tag
-	
-> NOTE: This plugin is a modular component for Grav which may require other plugins to operate, please see its [blueprints.yaml-file on GitHub](https://github.com/timhetrick/grav-plugin-seo-auto-tag/blob/main/blueprints.yaml).
+Download the zip from [GitHub](https://github.com/timhetrick/grav-plugin-seo-auto-tag), extract it to `/your/site/grav/user/plugins/`, and rename the folder to `seo-auto-tag`.
 
 ### Admin Plugin
 
-If you use the Admin Plugin, you can install the plugin directly by browsing the `Plugins`-menu and clicking on the `Add` button.
+Browse **Plugins → Add** and search for "SEO Auto-Tag".
 
 ## Configuration
 
-Before configuring this plugin, you should copy the `user/plugins/seo-auto-tag/seo-auto-tag.yaml` to `user/config/plugins/seo-auto-tag.yaml` and only edit that copy.
-
-Here is the default configuration and an explanation of available options:
+Copy `user/plugins/seo-auto-tag/seo-auto-tag.yaml` to `user/config/plugins/seo-auto-tag.yaml` and edit that copy:
 
 ```yaml
 enabled: true
+append_site_name: true      # Append site name to SEO title
+title_separator: ' | '      # Separator between page title and site name
+default_brand_image: ''      # Fallback image path (relative to user://images)
+json_ld: true                # Output JSON-LD structured data
 ```
 
-Note that if you use the Admin Plugin, a file with your configuration named seo-auto-tag.yaml will be saved in the `user/config/plugins/`-folder once the configuration is saved in the Admin.
+All settings are also configurable from the Admin Plugin under **Plugins → SEO Auto-Tag**.
 
-## Usage
+## Per-Page Overrides
 
-**Describe how to use the plugin.**
+Each page has an **SEO Auto-Tag** tab in the admin editor with the following fields:
 
-## Credits
+| Field | Description |
+|---|---|
+| **SEO Title Override** | Custom title for search engines and social media |
+| **SEO Description Override** | Custom meta description (max 160 characters) |
+| **SEO Image Override** | Custom image for OpenGraph/Twitter cards |
+| **Robots** | Control indexing: Default, No Index, No Follow, or both |
 
-**Did you incorporate third-party code? Want to thank somebody?**
+## Fallback Logic
 
-## To Do
+### Title
+1. `header.seo.title` (manual override)
+2. `page.title` (page title)
+3. Site name is appended if `append_site_name` is enabled
 
-- [ ] Future plans, if any
+### Description
+1. `header.seo.description` (manual override)
+2. `page.metadata.description` (page-level metadata)
+3. Auto-generated: first 155 characters of page content (stripped of HTML)
 
+### Image
+1. `header.seo.image` (manual override)
+2. First image in the page's media folder
+3. `default_brand_image` from plugin config
+
+## Output
+
+The plugin injects the following into every routable page's `<head>`:
+
+- `<link rel="canonical">` 
+- `<meta name="description">`
+- `<meta name="robots">` (if set)
+- OpenGraph meta tags
+- Twitter Card meta tags
+- JSON-LD `<script>` block (if enabled)
+
+> **Note:** The plugin does **not** output a `<title>` tag — your theme handles that. This avoids duplicate title issues.
+
+## License
+
+MIT — see [LICENSE](LICENSE) for details.

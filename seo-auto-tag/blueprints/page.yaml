@@ -15,7 +15,9 @@ form:
               type: textarea
               label: PLUGIN_SEO_AUTO_TAG.FIELDS.DESC_OVERRIDE_LABEL
               help: PLUGIN_SEO_AUTO_TAG.FIELDS.DESC_OVERRIDE_HELP
-              
+              validate:
+                max: 160
+
             header.seo.image:
               type: filepicker
               folder: '@self'
@@ -24,3 +26,14 @@ form:
               preview_images: true
               accept:
                 - image/*
+
+            header.seo.robots:
+              type: select
+              label: PLUGIN_SEO_AUTO_TAG.FIELDS.ROBOTS_LABEL
+              help: PLUGIN_SEO_AUTO_TAG.FIELDS.ROBOTS_HELP
+              default: ''
+              options:
+                '': PLUGIN_SEO_AUTO_TAG.FIELDS.ROBOTS_DEFAULT
+                'noindex': PLUGIN_SEO_AUTO_TAG.FIELDS.ROBOTS_NOINDEX
+                'nofollow': PLUGIN_SEO_AUTO_TAG.FIELDS.ROBOTS_NOFOLLOW
+                'noindex, nofollow': PLUGIN_SEO_AUTO_TAG.FIELDS.ROBOTS_NOINDEX_NOFOLLOW
